@@ -1,0 +1,24 @@
+body {
+  background-color: #eeeeee;
+  color: #444444;
+}
+
+.App {
+	margin: 0;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #FF5252;
+  color: white;
+  height: 100px;
+}
+
+.header_name {
+	padding-top: 30px;
+}
+
+.divAddTodo {
+	height: 35px;
+  background-color: #2d3142;
+}
