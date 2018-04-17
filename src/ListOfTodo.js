@@ -10,6 +10,7 @@ const ListOfTodo = props => (
 					key={todo.id}
 					todo={todo}
 					index={index}
+					onStatus={props.onStatus}
 					onFire={props.onFinished}
 					onDelete={props.onDelete}
 				/>

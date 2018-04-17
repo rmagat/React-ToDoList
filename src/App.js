@@ -12,13 +12,13 @@ var counter_index_todo = 0;
 class App extends Component {
 	state = {
 		todos: [
-			this.createTodo("Café", "Trop bien",""),
-			this.createTodo("Caca", "Très sale",""),
-			this.createTodo("Clope", "En permanence","")
+			this.createTodo("Café", "Trop bien", "todo"),
+			this.createTodo("Caca", "Très sale", "todo"),
+			this.createTodo("Clope", "En permanence", "done")
 		],
 	};
 	handleChange(event) {
-	    this.setState({value: event.target.value});
+		this.setState({value: event.target.value});
 	}
 	onFinished(index) {
 		var todos = this.state.todos;
@@ -34,12 +34,25 @@ class App extends Component {
 			todos: todos
 		});
 	}
+	onStatus(index) {
+		var todos = this.state.todos;
+		todos[index].status = !todos[index].status;
+		this.setState({
+			todos: todos
+		});
+	}
+	deleteAllChecked() {
+		// this.setState({
+		// 	todos: [...this.state.todos].filter(data => data.status == "todo")
+		// });
+		console.log(this.state.todos)
+	}
 	createTodo(title, text, state) {
 		return {
 			id: counter_index_todo++,
 			title: title,
 			text: text,
-			state: state
+			status: state
 		};
 	}
 	render() {
@@ -70,36 +83,43 @@ class App extends Component {
 					<button
 						onClick={() => {
 							var todos = this.state.todos;
-							todos.push(this.createTodo(this.state.text, this.state.title, this.state.state));
+							todos.push(this.createTodo(this.state.text, this.state.title, this.state.status));
 							this.setState({
 								todos: todos,
 								title: "",
 								text: "",
-								state: ""
+								status: ""
 							});
 						}}
-					>
-					Add
-					</button>
+						>
+							Add
+						</button>
+					</div>
+					<ListOfTodo
+						onStatus={this.onFinished.bind(this)}
+						todos={this.state.todos}
+						onFinished={this.onFinished.bind(this)}
+						onDelete={this.onDelete.bind(this)}
+					/>
+					<div>
+						<button
+							className="App-submit"
+							onClick={() => {
+								this.onShowHide;
+							}}
+						>
+							Show/hide finished
+						</button>
+						<button
+							className="App-submit"
+							onClick={this.deleteAllChecked}
+						>
+							Delete checked todo
+						</button>
+					</div>
 				</div>
-				<ListOfTodo
-					todos={this.state.todos}
-					onFinished={this.onFinished.bind(this)}
-					onDelete={this.onDelete.bind(this)}
-				/>
-				<div>
-					<button
-						className="App-submit"
-						onClick={() => {
-							this.onShowHide;
-						}}
-					>
-					Show/hide finished
-					</button>
-				</div>
-			</div>
-		);
+			);
+		}
 	}
-}
 
-export default App;
+	export default App;

@@ -15,25 +15,25 @@ const Todo = props => (
 		onClick={() => {
 			props.onFire(props.index);
 		}}
-	>
-		<p>
-			<input
-				type="checkbox"
-				id={props.todo.index}
-				checked={props.todo.state === "complete"}
-				onChange={this.handleChange}
-			/>
-			<span>{props.todo.title} : </span>
-			{props.todo.text}
-			<button
-				onClick={() => {
-					props.onDelete(props.index);
-				}}
-			>
-			X
-			</button>
-		</p>
-	</div>
-);
+		>
+			<p>
+				<input
+					type="checkbox"
+					id={props.todo.index}
+					//checked={props.todo.state === "done"}
+					onChange={props.todo.status === "done"}
+				/>
+				<span>{props.todo.title} : </span>
+				{props.todo.text}
+				<button
+					onClick={() => {
+						props.onDelete(props.index);
+					}}
+					>
+						X
+					</button>
+				</p>
+			</div>
+		);
 
-export default Todo;
+		export default Todo;
