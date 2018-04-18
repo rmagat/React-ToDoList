@@ -1,24 +1,120 @@
 body {
-  background-color: #eeeeee;
-  color: #444444;
+	background-color: #343838;
+	color: #444444;
 }
 
 .App {
-	margin: 0;
-  text-align: center;
+	background-color: #fff;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 40px;
+	width: 900px;
+	text-align: center;
+	border: 2px solid #fff;
+	border-radius: 15px;
 }
 
-.App-header {
-  background-color: #FF5252;
-  color: white;
-  height: 100px;
+.divListTodo {
+	background: #fff;
+	border: 2px solid #fff;
+	border-radius: 15px;
+	padding: 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
 }
 
-.header_name {
-	padding-top: 30px;
+.divTodo {
+	text-align: left;
+	background: #eee;
+	height: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-.divAddTodo {
-	height: 35px;
-  background-color: #2d3142;
+.pTodo {
+	font-size: 15px;
+	font-weight: bold;
+	color: #444;
+	font-family: Arial;
+	display: inline-block;
+	margin-top: 16px;
+	margin-left: 12px;
+}
+
+.inputText_style {
+	border: 1px solid #eeeeee;
+	border-radius: 28px;
+	margin-right: 15px;
+	font-family: Arial;
+	color: #444;
+	font-size: 20px;
+	background: #eeeeee;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+}
+
+.button_style {
+	border: 1px solid #00DFFC;
+	border-radius: 28px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 20px;
+	background: #00DFFC;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+}
+
+.button_style:hover {
+	cursor: pointer;
+	background: #01c5de;
+	text-decoration: none;
+}
+
+.button_styleEnd {
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px solid #00DFFC;
+	border-radius: 28px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 20px;
+	background: #00DFFC;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+}
+
+.button_styleEnd:hover {
+	cursor: pointer;
+	background: #01c5de;
+	text-decoration: none;
+}
+
+.buttonTodo_style {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid #00DFFC;
+	background: #00DFFC;
+	color: #fff;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.buttonTodo_style:hover {
+	cursor: pointer;
+	background: #01c5de;
+	text-decoration: none;
+}
+
+.inputCheckbox {
+	width: 20px;
+	position: relative;
+	margin-left: 20px;
 }

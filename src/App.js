@@ -12,47 +12,31 @@ var counter_index_todo = 0;
 class App extends Component {
 	state = {
 		todos: [
-			this.createTodo("Café", "Trop bien", "todo"),
-			this.createTodo("Caca", "Très sale", "todo"),
-			this.createTodo("Clope", "En permanence", "done")
+			this.createTodo("Android", "Appel API"),
+			this.createTodo("Perso", "RDV Médecin")
 		],
 	};
-	handleChange(event) {
-		this.setState({value: event.target.value});
-	}
 	onFinished(index) {
-		var todos = this.state.todos;
-		todos[index].finished = !todos[index].finished;
-		this.setState({
-			todos: todos
-		});
-	}
-	onDelete(index) {
-		var todos = this.state.todos;
-		todos[index].delete = !todos[index].delete;
-		this.setState({
-			todos: todos
-		});
-	}
-	onStatus(index) {
 		var todos = this.state.todos;
 		todos[index].status = !todos[index].status;
 		this.setState({
 			todos: todos
 		});
+		console.log(this.state.todos)
 	}
+
 	deleteAllChecked() {
 		// this.setState({
 		// 	todos: [...this.state.todos].filter(data => data.status == "todo")
 		// });
-		console.log(this.state.todos)
+		console.log(this.state.todo)
 	}
 	createTodo(title, text, state) {
 		return {
 			id: counter_index_todo++,
 			title: title,
 			text: text,
-			status: state
+			status: false
 		};
 	}
 	render() {
@@ -63,6 +47,7 @@ class App extends Component {
 				</div>
 				<div className="divAddTodo">
 					<input
+						className="inputText_style"
 						placeholder="Tilte"
 						value={this.state.title}
 						onChange={e => {
@@ -72,6 +57,7 @@ class App extends Component {
 						}}
 					/>
 					<input
+						className="inputText_style"
 						placeholder="Message"
 						value={this.state.text}
 						onChange={e => {
@@ -81,14 +67,14 @@ class App extends Component {
 						}}
 					/>
 					<button
+						className="button_style"
 						onClick={() => {
 							var todos = this.state.todos;
 							todos.push(this.createTodo(this.state.text, this.state.title, this.state.status));
 							this.setState({
 								todos: todos,
 								title: "",
-								text: "",
-								status: ""
+								text: ""
 							});
 						}}
 						>
@@ -96,22 +82,17 @@ class App extends Component {
 						</button>
 					</div>
 					<ListOfTodo
-						onStatus={this.onFinished.bind(this)}
 						todos={this.state.todos}
 						onFinished={this.onFinished.bind(this)}
-						onDelete={this.onDelete.bind(this)}
 					/>
 					<div>
 						<button
-							className="App-submit"
-							onClick={() => {
-								this.onShowHide;
-							}}
+							className="button_styleEnd"
 						>
 							Show/hide finished
 						</button>
 						<button
-							className="App-submit"
+							className="button_styleEnd"
 							onClick={this.deleteAllChecked}
 						>
 							Delete checked todo

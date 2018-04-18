@@ -1,39 +1,35 @@
 import React, { Component } from "react";
+import './App.css';
 
 //  Pure Component to display ONE todo
 const Todo = props => (
 	<div
-		style={{
-			"display": props.todo.delete ? "none" : "block",
-			"background-color": props.todo.finished ? "green" : "white",
-			color: props.todo.finished ? "white" : "black",
-			height: 40,
-			marginTop: 5,
-			marginBottom: 5,
-			paddinTop: 50
-		}}
-		onClick={() => {
-			props.onFire(props.index);
-		}}
+		className="divTodo"
 		>
-			<p>
-				<input
-					type="checkbox"
-					id={props.todo.index}
-					//checked={props.todo.state === "done"}
-					onChange={props.todo.status === "done"}
-				/>
-				<span>{props.todo.title} : </span>
-				{props.todo.text}
-				<button
-					onClick={() => {
-						props.onDelete(props.index);
-					}}
-					>
-						X
-					</button>
-				</p>
-			</div>
-		);
+			<div
+				style={{
+					"background-color": props.todo.status ? "#00DFFC" : "#eee",
+					height: 50
+				}}
 
-		export default Todo;
+				>
+					<input
+						className="inputCheckbox"
+						type="checkbox"
+						id={props.todo.index}
+						//checked={props.todo.state === "done"}
+						onChange={() => {
+							props.onFinished(props.index);
+						}}
+					/>
+					<span className="pTodo">{props.todo.title} : {props.todo.text}</span>
+					<button
+						className="buttonTodo_style"
+						>
+							x
+						</button>
+					</div>
+				</div>
+			);
+
+			export default Todo;

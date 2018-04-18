@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Todo from "./Todo";
+import './App.css';
 
 const ListOfTodo = props => (
-	<div>
+	<div className="divListTodo">
 		{props.todos.map((todo, index) => {
 			//
 			return (
@@ -10,9 +11,7 @@ const ListOfTodo = props => (
 					key={todo.id}
 					todo={todo}
 					index={index}
-					onStatus={props.onStatus}
-					onFire={props.onFinished}
-					onDelete={props.onDelete}
+					onFinished={props.onFinished}
 				/>
 			);
 		})}
