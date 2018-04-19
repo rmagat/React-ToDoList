@@ -3,6 +3,7 @@ import './App.css';
 
 //  Pure Component to display ONE todo
 const Todo = props => (
+
 	<div
 		className="divTodo"
 		>
@@ -25,6 +26,9 @@ const Todo = props => (
 					<span className="pTodo">{props.todo.title} : {props.todo.text}</span>
 					<button
 						className="buttonTodo_style"
+						onClick={() => {
+							props.onTodoDelete(props.index);
+						}}
 						>
 							x
 						</button>

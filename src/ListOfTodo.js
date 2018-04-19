@@ -12,6 +12,7 @@ const ListOfTodo = props => (
 					todo={todo}
 					index={index}
 					onFinished={props.onFinished}
+					onTodoDelete={props.onTodoDelete}
 				/>
 			);
 		})}

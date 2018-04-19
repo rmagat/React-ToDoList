@@ -13,7 +13,8 @@ class App extends Component {
 	state = {
 		todos: [
 			this.createTodo("Android", "Appel API"),
-			this.createTodo("Perso", "RDV Médecin")
+			this.createTodo("Perso", "RDV Médecin"),
+			this.createTodo("Copine", "Sexe")
 		],
 	};
 	onFinished(index) {
@@ -25,12 +26,22 @@ class App extends Component {
 		console.log(this.state.todos)
 	}
 
-	deleteAllChecked() {
-		// this.setState({
-		// 	todos: [...this.state.todos].filter(data => data.status == "todo")
-		// });
-		console.log(this.state.todo)
+	onTodoDelete(index) {
+		var todos = this.state.todos;
+		todos.splice(index, 1);
+		this.setState({
+			todos: todos
+		});
+		console.log(this.state.todos)
 	}
+
+	deleteAllChecked() {
+		this.setState({
+	 		todos: [...this.state.todos].filter(data => data.status == false)
+		});
+		console.log(this.state.todos)
+	}
+
 	createTodo(title, text, state) {
 		return {
 			id: counter_index_todo++,
@@ -84,6 +95,7 @@ class App extends Component {
 					<ListOfTodo
 						todos={this.state.todos}
 						onFinished={this.onFinished.bind(this)}
+						onTodoDelete={this.onTodoDelete.bind(this)}
 					/>
 					<div>
 						<button
@@ -93,7 +105,7 @@ class App extends Component {
 						</button>
 						<button
 							className="button_styleEnd"
-							onClick={this.deleteAllChecked}
+							onClick={this.deleteAllChecked.bind(this)}
 						>
 							Delete checked todo
 						</button>
